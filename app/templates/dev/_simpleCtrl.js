@@ -7,7 +7,7 @@ angular.module('myApp', [
   'ngTouch',
   'ngAnimate',
   // The custom module
-  '<%= modulePrefix %>.<%= _.capitalize(_.camelize(moduleNamePart)) %>'
+  '<%= githubName %>.<%= moduleName %>'
   ]).controller('SimpleCtrl', ['$scope', function($scope) {
     /**
      * @TODO - Put controller level code -- routes, test objects -- here

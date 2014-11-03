@@ -91,6 +91,7 @@ var AlleyAngularModuleGenerator = yeoman.generators.Base.extend({
       this.template('_gruntfile.js', 'Gruntfile.js');
       this.template('_protractor.conf.js', 'protractor.conf.js');
       this.template('_README.md', 'README.md');
+      this.template('_CHANGELOG.md', 'CHANGELOG.md');
     },
 
     // Copy generic config files

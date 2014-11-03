@@ -53,7 +53,7 @@ angular.module('<%= githubName %>.<%= moduleName %>', [])
       // The directive template string
       template: function(element, attrs) {
         // @example
-        // return '<h3 class="{{ directiveClass }}">{{ data.title }}</h3>
+        // return '<h3 class="{{ directiveClass }}">{{ data.title }}</h3>';
       },
 
       // The directive link function

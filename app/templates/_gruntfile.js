@@ -12,10 +12,10 @@ module.exports = function(grunt) {
    * then may be called again AFTER updating grunt (command line) options.
    * @method init
    */
-	function init() {
+  function init() {
 
-		// Project configuration.
-		grunt.initConfig({
+    // Project configuration.
+    grunt.initConfig({
 
       // Config values
       config: {
@@ -136,6 +136,27 @@ module.exports = function(grunt) {
         }
       },
 
+      // Copy bower_components for gh-pages
+      copy: {
+        module: {
+          expand: true,
+          dest: 'dev/',
+          cwd: '<%%= config.dist %>',
+          flatten: true,
+          src: [
+            '<%%= config.css %>',
+            '<%%= config.module %>',
+          ]
+        },
+        components: {
+          expand: true,
+          dest: 'dev/',
+          src: [
+            'bower_components/**',
+          ]
+        }
+      },
+
       // ngAnnotate for angular-safe minification
       ngAnnotate: {
         options: {
@@ -196,12 +217,7 @@ module.exports = function(grunt) {
         options: {
           base: 'dev'
         },
-        src: [
-          '*',
-          '../bower_components',
-          '../<%%= config.dist %>/<%%= config.cssmin %>',
-          '../<%%= config.minified %>/<%%= config.minified %>'
-        ]
+        src: '**/*'
       },
 
       // Releasing
@@ -213,7 +229,7 @@ module.exports = function(grunt) {
           ],
           updateConfigs: [],
           commit: true,
-          commitMessage: '%VERSION%',
+          commitMessage: 'Release v%VERSION%',
           commitFiles: [
             'README.md',
             'CHANGELOG.md',
@@ -225,10 +241,10 @@ module.exports = function(grunt) {
             '<%%= config.dist %>/<%%= config.cssmin %>'
           ],
           createTag: true,
-          tagName: '%VERSION%',
+          tagName: 'v%VERSION%',
           tagMessage: 'Version %VERSION%',
           push: true,
-          pustTo: 'origin',
+          pushTo: 'origin',
           // options to use with '$ git describe'
           gitDescribeOptions: '--tags --always --abbrev=1 --dirty=-d'
         }
@@ -267,6 +283,12 @@ module.exports = function(grunt) {
       'bump'
     ]);
 
+    grunt.registerTask('pages', [
+      'build',
+      'copy',
+      'gh-pages'
+    ]);
+
     grunt.registerTask('serve', [
       'clean:dev',
       'concat:dev',
@@ -279,7 +301,7 @@ module.exports = function(grunt) {
     grunt.registerTask('default', [
       'serve'
     ]);
-	}
+  }
   //initialize here for defaults (init may be called again later within a task)
-	init({});
+  init({});
 };

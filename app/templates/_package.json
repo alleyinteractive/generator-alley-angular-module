@@ -15,6 +15,7 @@
 		"grunt-contrib-jshint": "~0.7.0",
     "grunt-contrib-sass": "~0.8.1",
     "grunt-contrib-connect": "~0.8.0",
+    "grunt-contrib-copy": "~0.7.0",
     "grunt-gh-pages": "~0.9.1",
     "karma": "~0.10.5",
 		"grunt-karma": "~0.6.2",
@@ -23,7 +24,7 @@
     "karma-ie-launcher": "~0.1.1",
     "karma-growl-reporter": "~0.1.1",
     "grunt-ng-annotate": "~0.4.0",
-    "grunt-bump": "0.0.13",
+    "grunt-bump": "0.0.16",
     "protractor": "~0.16.1",
     "matchdep": "~0.3.0"
 	},
