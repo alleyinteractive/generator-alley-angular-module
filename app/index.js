@@ -126,7 +126,7 @@ var AlleyAngularModuleGenerator = yeoman.generators.Base.extend({
           chalk.bold('2.') + 'Write your directive or service.\n' +
           chalk.bold('3.') + 'Create a matching Github repo\n' +
           chalk.bold('4.') + 'Run `grunt pages` to to push your demo page to gh-pages.\n' +
-          chalk.bold('5.') + 'Run `grunt bump` to push a tagged release to master.\n' + 
+          chalk.bold('5.') + 'Run `grunt release` to push a tagged release to master.\n' + 
           chalk.bold('6.') + '(Optional) Register bower component'
         );
       }
