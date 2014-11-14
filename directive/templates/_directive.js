@@ -14,7 +14,7 @@
  * <doc: example>
  *   <doc: source>
  *     <script>
- *       var app = angular.module('myApp', '<%= githubName %>.<%= moduleName %>']);
+ *       var app = angular.module('myApp', '<%= githubName %>.<%= _.camelize(moduleName) %>']);
  *     </script>
  *     <div <%= moduleName %>
  *       data="myData"
@@ -27,7 +27,7 @@
 'use strict';
 
 // Define the module and add dependencies
-angular.module('<%= githubName %>.<%= moduleName %>', [])
+angular.module('<%= githubName %>.<%= _.camelize(moduleName) %>', [])
 
   // Use snake case when defining the directive in markup
   // @example
